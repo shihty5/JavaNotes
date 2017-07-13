@@ -1,5 +1,8 @@
 package me.peter.designpattern.factorymethod;
 
+/*
+ * Each factory makes their own product.
+ */
 public class Client {
 
 	public static void main(String[] args) {
