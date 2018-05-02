@@ -2,7 +2,9 @@
 /build/
 /bin/
 target/
- 
+.idea
+
+
 # OS Files #
 .DS_Store
  

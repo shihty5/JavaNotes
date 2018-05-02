@@ -7,14 +7,14 @@ import me.peter.designpattern.part1.abstractfactory.wheel.Wheel;
 
 public class AdvancedCarFactory implements CarFactory {
 
-	@Override
-	public Roof createRoof() {
-		return new AdvancedRoof();
-	}
+    @Override
+    public Roof createRoof() {
+        return new AdvancedRoof();
+    }
 
-	@Override
-	public Wheel createWheel() {
-		return new AdvancedWheel();
-	}
+    @Override
+    public Wheel createWheel() {
+        return new AdvancedWheel();
+    }
 
 }
