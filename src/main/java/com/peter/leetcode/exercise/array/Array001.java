@@ -1,4 +1,4 @@
-package com.peter.leetcode.exercise;
+package com.peter.leetcode.exercise.array;
 
 public class Array001 {
     public static void main(String[] args) {
