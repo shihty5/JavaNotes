@@ -1,8 +1,6 @@
 package com.peter.leetcode.exercise.bintree;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Tree001 {
     public static void main(String[] args) {
@@ -21,11 +19,9 @@ public class Tree001 {
         node5.right = node6;
         node3.right = node7;
 
-        ArrayList<Integer> list = (ArrayList<Integer>) inorderTraversal(node1);
 
-        for (int i = 0; i < list.size(); i++) {
-            System.out.println(list.get(i));
-        }
+        List<List<Integer>> result = levelOrder(node1);
+        System.out.println(result);
     }
 
     //先序遍历
@@ -72,10 +68,49 @@ public class Tree001 {
         while (root != null || !stack.isEmpty()) {
             if (root != null) {
                 stack.push(root);
-                stack.
+                root = root.left;
             } else {
+                if (stack.peek().right != null) {
+                    root = stack.peek().right;
+                    stack.peek().right = null;
+                } else {
+                    list.add(stack.pop().val);
+                }
 
             }
+        }
+
+        return list;
+    }
+
+    //层次遍历
+    public static List<List<Integer>> levelOrder(TreeNode root) {
+
+        if (root == null) {
+            return new ArrayList<>();
+        }
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        List<List<Integer>> list = new ArrayList<>();
+
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            int cur = 0;
+            int size = queue.size();
+            List<Integer> subList = new ArrayList<>();
+            while (cur < size) {
+                TreeNode curNode = queue.poll();
+                subList.add(curNode.val);
+                if (curNode.left != null) {
+                    queue.offer(curNode.left);
+                }
+                if (curNode.right != null) {
+                    queue.offer(curNode.right);
+                }
+                cur++;
+            }
+            list.add(subList);
         }
 
         return list;
